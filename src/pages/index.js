@@ -1,12 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-
-import { getQuizzes } from "@/lib/getQuizzes";
-
-import Header from "@/components/Header";
-
 import styles from "./../styles/Home.module.scss";
+import { getQuizzes } from "@/lib/getQuizzes";
+import Header from "@/components/Header";
 
 export default function Home({ quizzes }) {
   return (
@@ -21,7 +18,7 @@ export default function Home({ quizzes }) {
       <Header />
 
       <section className={styles.wrapper}>
-        <div className={styles.content}>
+        <div className={styles.text_box}>
           <h1>
             <span>Welcome to the</span>
             <span>Frontend Quiz!</span>
@@ -29,23 +26,27 @@ export default function Home({ quizzes }) {
           <p>Pick a subject to get started!</p>
         </div>
 
-        {quizzes.map((quiz) => {
-          return (
-            <ul key={quiz.title}>
-              <li>
-                <Link href="/">
-                  <Image
-                    src={quiz.icon}
-                    alt={quiz.title}
-                    width={40}
-                    height={40}
-                  />
-                  <span>{quiz.title}</span>
-                </Link>
-              </li>
-            </ul>
-          );
-        })}
+        <div className={styles.buttons_box}>
+          <ul>
+            {quizzes.map((quiz) => {
+              return (
+                <li key={quiz.title}>
+                  <Link href={quiz.title.toLowerCase()}>
+                    <div>
+                      <Image
+                        src={quiz.icon}
+                        alt={quiz.title}
+                        width={28}
+                        height={28}
+                      />
+                    </div>
+                    <span>{quiz.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </section>
     </>
   );
@@ -53,6 +54,5 @@ export default function Home({ quizzes }) {
 
 export function getStaticProps() {
   const { quizzes } = getQuizzes();
-
   return { props: { quizzes } };
 }
