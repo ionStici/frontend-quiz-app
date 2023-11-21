@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { getQuizzes } from "@/lib/getQuizzes";
 
-import HomeComponent from "@/components/HomeComponent";
+import Header from "@/components/Header";
 
 export default function Home({ quizzes }) {
   return (
@@ -16,7 +16,35 @@ export default function Home({ quizzes }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomeComponent quizzes={quizzes} />
+      <Header />
+
+      <section>
+        <h1>
+          <span>Welcome to the</span>
+          <span>Frontend Quiz!</span>
+        </h1>
+        <p>Pick a subject to get started!</p>
+      </section>
+
+      <section>
+        {quizzes.map((quiz) => {
+          return (
+            <ul key={quiz.title}>
+              <li>
+                <Link href="/">
+                  <Image
+                    src={quiz.icon}
+                    alt={quiz.title}
+                    width={40}
+                    height={40}
+                  />
+                  <span>{quiz.title}</span>
+                </Link>
+              </li>
+            </ul>
+          );
+        })}
+      </section>
     </>
   );
 }

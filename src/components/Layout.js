@@ -1,10 +1,5 @@
 function Layout({ children }) {
-  return (
-    <main>
-      <header></header>
-      {children}
-    </main>
-  );
+  return <main>{children}</main>;
 }
 
 export default Layout;
