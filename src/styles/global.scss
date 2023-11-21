@@ -1,0 +1,74 @@
+:root {
+  --color-purple: hsla(277, 91%, 56%, 1);
+  --color-dark-navy: hsla(216, 25%, 25%, 1);
+  --color-navy: hsla(216, 27%, 32%, 1);
+  --color-grey-navy: hsla(219, 13%, 44%, 1);
+  --color-light-bluish: hsla(216, 47%, 78%, 1);
+  --color-light-grey: hsla(220, 38%, 97%, 1);
+  --color-white: hsla(0, 0%, 100%, 1);
+  --color-green: hsla(151, 70%, 50%, 1);
+  --color-red: hsla(0, 82%, 63%, 1);
+}
+
+:root {
+  --bg-patthrn-mobile: url("./../../public/assets/images/pattern-background-mobile-dark.svg");
+  --bg-patthrn-tablet: url("./../../public/assets/images/pattern-background-tablet-dark.svg");
+  --bg-patthrn-desktop: url("./../../public/assets/images/pattern-background-desktop-dark.svg");
+
+  --color-bg: hsla(216, 25%, 25%, 1);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-patthrn-mobile: url("./../../public/assets/images/pattern-background-mobile-light.svg");
+    --bg-patthrn-tablet: url("./../../public/assets/images/pattern-background-tablet-light.svg");
+    --bg-patthrn-desktop: url("./../../public/assets/images/pattern-background-desktop-light.svg");
+
+    --color-bg: hsla(220, 38%, 97%, 1);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+
+  &::after {
+    content: "";
+    background-image: var(--bg-patthrn-mobile);
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+
+    @media only screen and (min-width: 768px) {
+      background-image: var(--bg-patthrn-tablet);
+    }
+
+    @media only screen and (min-width: 1200px) {
+      background-image: var(--bg-patthrn-desktop);
+      background-size: cover;
+    }
+  }
+}
+
+main {
+}

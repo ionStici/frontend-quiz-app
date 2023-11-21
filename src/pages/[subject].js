@@ -1,0 +1,3 @@
+function QuizPage() {
+  return null;
+}
