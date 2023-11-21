@@ -1,11 +1,14 @@
 :root {
+  --color-white: hsla(0, 0%, 100%, 1);
+
+  // // // // // // // // // // // // // // // // // // // //
+
   --color-purple: hsla(277, 91%, 56%, 1);
   --color-dark-navy: hsla(216, 25%, 25%, 1);
   --color-navy: hsla(216, 27%, 32%, 1);
   --color-grey-navy: hsla(219, 13%, 44%, 1);
   --color-light-bluish: hsla(216, 47%, 78%, 1);
   --color-light-grey: hsla(220, 38%, 97%, 1);
-  --color-white: hsla(0, 0%, 100%, 1);
   --color-green: hsla(151, 70%, 50%, 1);
   --color-red: hsla(0, 82%, 63%, 1);
 }
@@ -16,6 +19,8 @@
   --bg-patthrn-desktop: url("./../../public/assets/images/pattern-background-desktop-dark.svg");
 
   --color-bg: hsla(216, 25%, 25%, 1);
+  --color-text: hsla(0, 0%, 100%, 1);
+  --color-second-text: hsla(216, 47%, 78%, 1);
 }
 
 @media (prefers-color-scheme: light) {
@@ -25,6 +30,8 @@
     --bg-patthrn-desktop: url("./../../public/assets/images/pattern-background-desktop-light.svg");
 
     --color-bg: hsla(220, 38%, 97%, 1);
+    --color-text: hsla(216, 25%, 25%, 1);
+    --color-second-text: hsla(219, 13%, 44%, 1);
   }
 }
 
@@ -45,6 +52,7 @@ html {
 
 body {
   background-color: var(--color-bg);
+  transition: background-color 0.2s;
 
   &::after {
     content: "";

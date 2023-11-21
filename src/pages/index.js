@@ -6,6 +6,8 @@ import { getQuizzes } from "@/lib/getQuizzes";
 
 import Header from "@/components/Header";
 
+import styles from "./../styles/Home.module.scss";
+
 export default function Home({ quizzes }) {
   return (
     <>
@@ -18,15 +20,15 @@ export default function Home({ quizzes }) {
 
       <Header />
 
-      <section>
-        <h1>
-          <span>Welcome to the</span>
-          <span>Frontend Quiz!</span>
-        </h1>
-        <p>Pick a subject to get started!</p>
-      </section>
+      <section className={styles.wrapper}>
+        <div className={styles.content}>
+          <h1>
+            <span>Welcome to the</span>
+            <span>Frontend Quiz!</span>
+          </h1>
+          <p>Pick a subject to get started!</p>
+        </div>
 
-      <section>
         {quizzes.map((quiz) => {
           return (
             <ul key={quiz.title}>
