@@ -9,7 +9,13 @@ export default function Home({ quizzes }) {
   return (
     <>
       <Head>
-        <title>Pick a subject to get started! | Frontend Quiz App</title>
+        <title>Frontend Quiz App</title>
+        <meta
+          name="description"
+          content="Frontend Quiz App | Frontend Mentor Challenge"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Header />

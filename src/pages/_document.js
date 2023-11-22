@@ -10,14 +10,6 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap"
           rel="stylesheet"
         />
-
-        <title>Frontend Quiz App</title>
-        <meta
-          name="description"
-          content="Frontend Quiz App | Frontend Mentor Challenge"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className="light">
         <Main />

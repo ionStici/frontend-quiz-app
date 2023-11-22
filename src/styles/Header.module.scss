@@ -32,16 +32,36 @@
 }
 
 .subject {
+  display: flex;
+  align-items: center;
+
   @media only screen and (min-width: 768px) {
   }
 
   @media only screen and (min-width: 1200px) {
   }
 
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    background-color: hsla(22, 100%, 96%, 1);
+    margin-right: 16px;
+  }
+
   img {
   }
 
   h1 {
+    color: var(--color-text);
+    transition: color 0.2s;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 100%;
   }
 }
 
