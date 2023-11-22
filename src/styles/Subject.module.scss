@@ -2,8 +2,29 @@
 }
 
 .wrapper {
+  max-width: 548px;
+  margin: 0 auto;
+
   padding: 0 24px;
   min-height: 708px;
+
+  @media only screen and (min-width: 768px) {
+    max-width: 768px;
+    padding: 0 64px;
+    min-height: revert;
+
+    margin-bottom: 57px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    max-width: 1288px;
+    margin-bottom: 172px;
+
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: minmax(0, 465px) minmax(0, 564px);
+    grid-template-rows: 1fr;
+  }
 }
 
 .text {
@@ -14,6 +35,11 @@
   font-style: italic;
   line-height: 150%;
   margin-bottom: 12px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 20px;
+    margin-bottom: 27px;
+  }
 }
 
 .question {
@@ -23,6 +49,15 @@
   font-weight: 500;
   line-height: 120%;
   margin-bottom: 24px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    margin-bottom: 164px;
+  }
 }
 
 .bar {
@@ -33,6 +68,10 @@
   border-radius: 50px;
   background-color: var(--bg-color-btn);
   margin-bottom: 40px;
+
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 64px;
+  }
 
   &::after {
     content: "";
@@ -48,11 +87,19 @@
   ul {
     list-style: none;
     margin-bottom: 12px;
+
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 32px;
+    }
   }
 
   li {
     &:not(:last-child) {
       margin-bottom: 12px;
+
+      @media only screen and (min-width: 768px) {
+        margin-bottom: 24px;
+      }
     }
   }
 }
@@ -74,17 +121,29 @@
 
   cursor: pointer;
 
+  @media only screen and (min-width: 768px) {
+    border-radius: 24px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    padding: 18px 20px;
+  }
+
   span {
     pointer-events: none;
     font-size: 18px;
     font-weight: 500;
     line-height: 100%;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 28px;
+    }
   }
 
   span:first-child {
     width: 40px;
     height: 40px;
-    border-radius: 12px;
+    border-radius: 6px;
 
     display: flex;
     align-items: center;
@@ -95,10 +154,21 @@
     transition: color 0.2s, background-color 0.2s;
 
     margin-right: 16px;
+
+    @media only screen and (min-width: 768px) {
+      width: 56px;
+      height: 56px;
+
+      border-radius: 12px;
+      margin-right: 32px;
+    }
+
+    @media only screen and (min-width: 1200px) {
+      border-radius: 8px;
+    }
   }
 
-  span:last-child {
-  }
+  //   span:last-child {}
 }
 
 .option {
@@ -109,11 +179,13 @@
 .submit_btn {
   width: 100%;
   height: 56px;
+
   padding: 12px;
   border-radius: 12px;
 
   border: none;
   background-color: var(--color-purple);
+
   box-shadow: var(--shadow-btn);
   transition: box-shadow 0.2s;
   cursor: pointer;
@@ -122,4 +194,10 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 100%;
+
+  @media only screen and (min-width: 768px) {
+    height: 92px;
+    border-radius: 24px;
+    font-size: 28px;
+  }
 }
