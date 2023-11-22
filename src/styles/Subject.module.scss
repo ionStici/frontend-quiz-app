@@ -75,6 +75,7 @@
   cursor: pointer;
 
   span {
+    pointer-events: none;
     font-size: 18px;
     font-weight: 500;
     line-height: 100%;
@@ -97,9 +98,12 @@
   }
 
   span:last-child {
-    color: var(--color-text);
-    transition: color 0.2s;
   }
+}
+
+.option {
+  color: var(--color-text);
+  transition: color 0.2s;
 }
 
 .submit_btn {

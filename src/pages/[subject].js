@@ -7,10 +7,22 @@ function SubjectPage({ quiz }) {
   const { questions } = quiz;
 
   const [current, setCurrent] = useState(questions[0]);
+
   const number = questions.indexOf(current) + 1;
 
+  const { answer: correctAnswer } = current;
+
+  const answers = Array.from({ length: 10 }, () => null);
+
+  function handleActiveAnswer({ target }) {
+    const answer = target.querySelector(`.${styles.option}`).textContent;
+
+    console.log(answer === correctAnswer);
+  }
+
   function handleSubmit() {
-    setCurrent(questions[1]);
+    if (number === 10) return;
+    setCurrent(questions[number]);
   }
 
   return (
@@ -29,9 +41,12 @@ function SubjectPage({ quiz }) {
                 const l = ["A", "B", "C", "D"];
                 return (
                   <li key={i}>
-                    <button className={styles.answer_btn}>
+                    <button
+                      className={styles.answer_btn}
+                      onClick={handleActiveAnswer}
+                    >
                       <span>{l[i]}</span>
-                      <span>{option}</span>
+                      <span className={styles.option}>{option}</span>
                     </button>
                   </li>
                 );
