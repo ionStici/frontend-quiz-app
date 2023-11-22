@@ -1,5 +1,12 @@
 .header {
+  max-width: 500px;
+  margin: 0 auto;
   margin-bottom: 32px;
+
+  @media only screen and (min-width: 768px) {
+    max-width: 768px;
+    margin-bottom: 0;
+  }
 }
 
 .wrapper {
@@ -8,6 +15,11 @@
 
   height: 72px;
   padding: 16px 24px;
+
+  @media only screen and (min-width: 768px) {
+    height: 145px;
+    padding: 40px 64px 49px 64px;
+  }
 }
 
 .subject {
@@ -30,9 +42,18 @@
   margin-left: auto;
 
   cursor: pointer;
+
+  @media only screen and (min-width: 768px) {
+    column-gap: 16px;
+    height: 40px;
+  }
 }
 
 .icon {
+  @media only screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .toggle {
@@ -47,6 +68,12 @@
   border-radius: 100px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
+  @media only screen and (min-width: 768px) {
+    width: 48px;
+    height: 28px;
+    box-shadow: none;
+  }
+
   &::after {
     content: "";
     display: block;
@@ -57,11 +84,20 @@
     background-color: var(--color-white);
 
     transition: transform 0.3s;
+
+    @media only screen and (min-width: 768px) {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
 
 .dark {
   &::after {
     transform: translateX(12px);
+
+    @media only screen and (min-width: 768px) {
+      transform: translateX(20px);
+    }
   }
 }

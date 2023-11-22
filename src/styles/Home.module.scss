@@ -1,9 +1,23 @@
 .wrapper {
+  max-width: 500px;
   padding: 0 24px;
+  margin: 0 auto;
+
+  @media only screen and (min-width: 768px) {
+    max-width: 768px;
+    padding: 0 64px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+  }
 }
 
 .text_box {
   margin-bottom: 40px;
+
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 64px;
+  }
 
   h1 {
     margin-bottom: 16px;
@@ -17,10 +31,18 @@
       font-weight: 500;
       font-style: normal;
       line-height: 100%;
+
+      @media only screen and (min-width: 768px) {
+        font-size: 64px;
+      }
     }
 
     span:first-child {
       font-weight: 300;
+
+      @media only screen and (min-width: 768px) {
+        margin-bottom: 6px;
+      }
     }
   }
 
@@ -31,11 +53,19 @@
     font-weight: 400;
     font-style: italic;
     line-height: 150%;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 20px;
+    }
   }
 }
 
 .buttons_box {
   padding-bottom: 250px;
+
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 240px;
+  }
 
   ul {
     list-style: none;
@@ -44,6 +74,10 @@
   li {
     &:not(:last-child) {
       margin-bottom: 12px;
+
+      @media only screen and (min-width: 768px) {
+        margin-bottom: 24px;
+      }
     }
   }
 
@@ -69,6 +103,10 @@
     background-color: var(--bg-color-btn);
     box-shadow: var(--shadow-btn);
     transition: color 0.2s, background-color 0.2s, box-shadow 0.2s;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 28px;
+    }
   }
 
   div {
@@ -83,5 +121,19 @@
     border-radius: 6px;
 
     background-color: hsla(22, 100%, 96%, 1);
+
+    @media only screen and (min-width: 768px) {
+      width: 56px;
+      height: 56px;
+
+      margin-right: 32px;
+    }
+
+    img {
+      @media only screen and (min-width: 768px) {
+        width: 40px;
+        height: 40px;
+      }
+    }
   }
 }

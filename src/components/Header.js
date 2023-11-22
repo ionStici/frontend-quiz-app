@@ -44,7 +44,7 @@ function Header() {
         {false && (
           <div className={styles.subject}>
             <Image />
-            <h1>text</h1>
+            <h1></h1>
           </div>
         )}
 
