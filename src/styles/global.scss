@@ -19,6 +19,7 @@
   --bg-pattern-desktop: url("./../../public/assets/images/pattern-background-desktop-dark.svg");
 
   --color-bg: hsla(216, 25%, 25%, 1);
+  --color-bg-answer-box: hsla(220, 38%, 97%, 1);
   --color-text: hsla(0, 0%, 100%, 1);
   --color-second-text: hsla(216, 47%, 78%, 1);
 
@@ -32,6 +33,7 @@
   --bg-pattern-desktop: url("./../../public/assets/images/pattern-background-desktop-light.svg");
 
   --color-bg: hsla(220, 38%, 97%, 1);
+  --color-bg-answer-box: hsla(220, 38%, 97%, 1);
   --color-text: hsla(216, 25%, 25%, 1);
   --color-second-text: hsla(219, 13%, 44%, 1);
 
@@ -86,4 +88,8 @@ body {
 }
 
 main {
+}
+
+button {
+  font-family: inherit;
 }
