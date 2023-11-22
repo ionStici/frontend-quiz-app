@@ -4,7 +4,7 @@ import styles from "./../styles/Header.module.scss";
 
 import { useState, useEffect } from "react";
 
-function Header({ title, icon }) {
+function Header({ title, icon, color }) {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function Header({ title, icon }) {
       <div className={styles.wrapper}>
         {title && (
           <div className={styles.subject}>
-            <div>
+            <div style={{ backgroundColor: color }}>
               <Image src={icon} alt={`${title} Icon`} width={28} height={28} />
             </div>
             <h1>{title}</h1>

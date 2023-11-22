@@ -35,7 +35,7 @@ export default function Home({ quizzes }) {
               return (
                 <li key={quiz.title}>
                   <Link href={quiz.title.toLowerCase()}>
-                    <div>
+                    <div style={{ backgroundColor: quiz.color }}>
                       <Image
                         src={quiz.icon}
                         alt={quiz.title}

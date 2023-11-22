@@ -8,7 +8,7 @@ function SubjectPage({ quiz }) {
 
   return (
     <>
-      <Header title={quiz.title} icon={quiz.icon} />
+      <Header title={quiz.title} icon={quiz.icon} color={quiz.color} />
 
       <section>
         <p>{quiz.title}</p>

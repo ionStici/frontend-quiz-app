@@ -51,9 +51,22 @@
 
     background-color: hsla(22, 100%, 96%, 1);
     margin-right: 16px;
+
+    border-radius: 4px;
+
+    @media only screen and (min-width: 768px) {
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      margin-right: 24px;
+    }
   }
 
   img {
+    @media only screen and (min-width: 768px) {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   h1 {
@@ -62,6 +75,10 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 100%;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 28px;
+    }
   }
 }
 
