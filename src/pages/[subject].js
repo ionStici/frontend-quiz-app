@@ -1,13 +1,18 @@
 import Head from "next/head";
 import Image from "next/image";
-import Header from "@/components/Header";
 import { getQuizzes } from "@/lib/getQuizzes";
 import styles from "./../styles/Subject.module.scss";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 
+import { useContext } from "react";
+import ResultsContext from "./store";
+
 function SubjectPage({ quiz }) {
+  const { results, setResults } = useContext(ResultsContext);
   const router = useRouter();
+
+  const { title } = quiz;
 
   const { questions } = quiz;
   const [current, setCurrent] = useState(questions[0]);
@@ -42,9 +47,13 @@ function SubjectPage({ quiz }) {
     }
 
     if (target.textContent === "See Results") {
-      console.log(answers);
+      const points = answers.reduce((acc, val) => {
+        return val ? acc + 1 : acc;
+      }, 0);
 
-      //
+      setResults((prev) => {
+        return [...prev, [title, points]];
+      });
 
       router.push(`/${router.query.subject}/results`);
       return;
@@ -129,9 +138,19 @@ function SubjectPage({ quiz }) {
     }
   }
 
+  function updateBarWidth() {
+    let barWidth = (number + 1) * 10;
+    document.body.style.setProperty("--bar-width", `${barWidth}%`);
+  }
+
+  useEffect(() => {
+    document.body.style.setProperty("--bar-width", `${10}%`);
+  }, []);
+
   function nextQuestion() {
     if (number === 10) return;
-    document.body.style.setProperty("--bar-width", `${(number + 1) * 10}%`);
+
+    updateBarWidth();
     setCurrent(questions[number]);
   }
 
@@ -146,7 +165,6 @@ function SubjectPage({ quiz }) {
           content={`Challenge your knowledge about ${quiz.title}`}
         />
       </Head>
-      {/* <Header title={quiz.title} icon={quiz.icon} color={quiz.color} /> */}
 
       <section className={styles.section}>
         <div className={styles.wrapper}>

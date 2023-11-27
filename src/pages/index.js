@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./../styles/Home.module.scss";
 import { getQuizzes } from "@/lib/getQuizzes";
-import Header from "@/components/Header";
 
 export default function Home({ quizzes }) {
   return (
