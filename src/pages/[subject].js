@@ -43,6 +43,9 @@ function SubjectPage({ quiz }) {
 
     if (target.textContent === "See Results") {
       console.log(answers);
+
+      //
+
       router.push(`/${router.query.subject}/results`);
       return;
     }

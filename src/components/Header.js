@@ -1,21 +1,65 @@
 import Image from "next/image";
-
 import styles from "./../styles/Header.module.scss";
-
 import { useState, useEffect } from "react";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
-function Header({ title, icon, color }) {
+const data = {
+  html: {
+    title: "HTML",
+    icon: "/assets/images/icon-html.svg",
+    color: "hsla(22, 100%, 96%, 1)",
+  },
+  css: {
+    title: "CSS",
+    icon: "/assets/images/icon-css.svg",
+    color: "hsla(151, 87%, 94%, 1)",
+  },
+
+  js: {
+    title: "JavaScript",
+    icon: "/assets/images/icon-js.svg",
+    color: "hsla(223, 100%, 96%, 1)",
+  },
+
+  acc: {
+    title: "Accessibility",
+    icon: "/assets/images/icon-accessibility.svg",
+    color: "hsla(277, 100%, 95%, 1)",
+  },
+};
+
+function Header() {
   const [theme, setTheme] = useState("light");
 
-  //   const router = useRouter();
+  const router = useRouter();
 
-  //   let segment;
-  //   segment = router.query.subject;
-  //   segment = segment || router.query.slug;
-  //   if (typeof segment === "object") segment = segment[0];
+  let segment;
+  segment = router.query.subject;
+  segment = segment || router.query.slug;
+  if (typeof segment === "object") segment = segment[0];
 
-  //   console.log(segment);
+  let title, icon, color;
+
+  if (segment === "html") {
+    title = data.html.title;
+    icon = data.html.icon;
+    color = data.html.color;
+  }
+  if (segment === "css") {
+    title = data.css.title;
+    icon = data.css.icon;
+    color = data.css.color;
+  }
+  if (segment === "javascript") {
+    title = data.js.title;
+    icon = data.js.icon;
+    color = data.js.color;
+  }
+  if (segment === "accessibility") {
+    title = data.acc.title;
+    icon = data.acc.icon;
+    color = data.acc.color;
+  }
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
