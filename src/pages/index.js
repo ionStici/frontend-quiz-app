@@ -18,7 +18,7 @@ export default function Home({ quizzes }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      {/* <Header /> */}
 
       <section className={styles.wrapper}>
         <div className={styles.text_box}>

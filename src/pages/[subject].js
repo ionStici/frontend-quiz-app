@@ -17,10 +17,13 @@ function SubjectPage({ quiz }) {
     Array.from({ length: 10 }, () => null)
   );
   const btnsBox = useRef(null);
+  const submitBtn = useRef(null);
 
   // // // // // // // // // // // // // // // // // // // //
 
   function handleActiveAnswer({ target }) {
+    if (submitBtn.current.textContent === "Next Question") return;
+
     const ul = btnsBox.current;
     const btns = ul.querySelectorAll("button");
 
@@ -31,6 +34,11 @@ function SubjectPage({ quiz }) {
   function handleSubmit({ target }) {
     if (target.textContent === "Next Question") {
       nextQuestion();
+    }
+
+    if (target.textContent === "See Results") {
+      console.log(answers);
+      return;
     }
 
     const ul = btnsBox.current;
@@ -91,6 +99,11 @@ function SubjectPage({ quiz }) {
       selectedBtn.classList.remove(styles.wrong);
     }
 
+    if (number === 10) {
+      target.textContent = "See Results";
+      return;
+    }
+
     if (target.textContent === "Next Question") {
       target.textContent = "Submit Answer";
       return;
@@ -102,8 +115,8 @@ function SubjectPage({ quiz }) {
   }
 
   function nextQuestion() {
-    document.body.style.setProperty("--bar-width", `${(number + 1) * 10}%`);
     if (number === 10) return;
+    document.body.style.setProperty("--bar-width", `${(number + 1) * 10}%`);
     setCurrent(questions[number]);
   }
 
@@ -118,7 +131,7 @@ function SubjectPage({ quiz }) {
           content={`Challenge your knowledge about ${quiz.title}`}
         />
       </Head>
-      <Header title={quiz.title} icon={quiz.icon} color={quiz.color} />
+      {/* <Header title={quiz.title} icon={quiz.icon} color={quiz.color} /> */}
 
       <section className={styles.section}>
         <div className={styles.wrapper}>
@@ -157,7 +170,11 @@ function SubjectPage({ quiz }) {
                 );
               })}
             </ul>
-            <button className={styles.submit_btn} onClick={handleSubmit}>
+            <button
+              className={styles.submit_btn}
+              onClick={handleSubmit}
+              ref={submitBtn}
+            >
               Submit Answer
             </button>
           </div>
