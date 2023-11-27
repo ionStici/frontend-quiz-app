@@ -3,9 +3,19 @@ import Image from "next/image";
 import styles from "./../styles/Header.module.scss";
 
 import { useState, useEffect } from "react";
+// import { useRouter } from "next/router";
 
 function Header({ title, icon, color }) {
   const [theme, setTheme] = useState("light");
+
+  //   const router = useRouter();
+
+  //   let segment;
+  //   segment = router.query.subject;
+  //   segment = segment || router.query.slug;
+  //   if (typeof segment === "object") segment = segment[0];
+
+  //   console.log(segment);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -32,11 +42,11 @@ function Header({ title, icon, color }) {
     body.classList.add(theme === "dark" ? "dark" : "light");
   }, [theme]);
 
-  const iconMoonDark = "./assets/images/icon-moon-dark.svg";
-  const iconMoonLight = "./assets/images/icon-moon-light.svg";
+  const iconMoonDark = "/assets/images/icon-moon-dark.svg";
+  const iconMoonLight = "/assets/images/icon-moon-light.svg";
 
-  const iconSunDark = "./assets/images/icon-sun-dark.svg";
-  const iconSunLight = "./assets/images/icon-sun-light.svg";
+  const iconSunDark = "/assets/images/icon-sun-dark.svg";
+  const iconSunLight = "/assets/images/icon-sun-light.svg";
 
   return (
     <header className={styles.header}>

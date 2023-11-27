@@ -4,9 +4,11 @@ import Header from "@/components/Header";
 import { getQuizzes } from "@/lib/getQuizzes";
 import styles from "./../styles/Subject.module.scss";
 import { useState, useRef } from "react";
-import next from "next";
+import { useRouter } from "next/router";
 
 function SubjectPage({ quiz }) {
+  const router = useRouter();
+
   const { questions } = quiz;
   const [current, setCurrent] = useState(questions[0]);
 
@@ -18,6 +20,7 @@ function SubjectPage({ quiz }) {
   );
   const btnsBox = useRef(null);
   const submitBtn = useRef(null);
+  const message = useRef(null);
 
   // // // // // // // // // // // // // // // // // // // //
 
@@ -29,6 +32,8 @@ function SubjectPage({ quiz }) {
 
     btns.forEach((btn) => btn.classList.remove(styles.active));
     target.classList.add(styles.active);
+
+    message.current.classList.remove(styles.show_message);
   }
 
   function handleSubmit({ target }) {
@@ -38,6 +43,7 @@ function SubjectPage({ quiz }) {
 
     if (target.textContent === "See Results") {
       console.log(answers);
+      router.push(`/${router.query.subject}/results`);
       return;
     }
 
@@ -53,6 +59,12 @@ function SubjectPage({ quiz }) {
     const selectedBtn = [...btns].find((btn) => {
       return btn.classList.contains(styles.active);
     });
+
+    if (!selectedBtn) {
+      message.current.classList.add(styles.show_message);
+      return;
+    }
+
     const selectedIcon = selectedBtn.querySelector("img");
 
     if (target.textContent === "Next Question") {
@@ -177,6 +189,15 @@ function SubjectPage({ quiz }) {
             >
               Submit Answer
             </button>
+            <p className={styles.message} ref={message}>
+              <Image
+                src={"assets/images/icon-incorrect.svg"}
+                alt=""
+                width={32}
+                height={32}
+              />
+              <span>Please select an answer</span>
+            </p>
           </div>
         </div>
       </section>

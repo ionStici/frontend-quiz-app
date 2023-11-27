@@ -13,7 +13,8 @@
     padding: 0 64px;
     min-height: revert;
 
-    margin-bottom: 57px;
+    // margin-bottom: 57px;
+    margin-bottom: 129px;
   }
 
   @media only screen and (min-width: 1200px) {
@@ -97,6 +98,8 @@
 }
 
 .quizzes {
+  position: relative;
+
   ul {
     list-style: none;
     margin-bottom: 12px;
@@ -132,7 +135,15 @@
   background-color: var(--bg-color-btn);
   transition: background-color 0.2s, box-shadow 0.2s, outline 0.1s;
 
+  text-align: left;
   cursor: pointer;
+
+  &:hover {
+    span:first-child {
+      color: var(--color-purple);
+      background-color: var(--color-purple-pale);
+    }
+  }
 
   @media only screen and (min-width: 768px) {
     border-radius: 24px;
@@ -161,6 +172,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 
     color: var(--color-grey-navy);
     background-color: var(--color-bg-answer-box);
@@ -204,6 +216,18 @@
 
 .active {
   outline: 3px solid var(--color-purple);
+
+  span:first-child {
+    background-color: var(--color-purple);
+    color: var(--color-white);
+  }
+
+  &:hover {
+    span:first-child {
+      background-color: var(--color-purple);
+      color: var(--color-white);
+    }
+  }
 }
 
 .correct {
@@ -229,6 +253,52 @@
   transition: color 0.2s;
 }
 
+.message {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -44px;
+
+  @media only screen and (min-width: 768px) {
+    bottom: -72px;
+  }
+
+  img {
+    margin-right: 8px;
+
+    @media only screen and (min-width: 768px) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  span {
+    text-wrap: nowrap;
+    color: var(--color-red);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 100%;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 24px;
+      line-height: 150%;
+    }
+  }
+}
+
+.show_message {
+  opacity: 1;
+  visibility: visible;
+}
+
 .submit_btn {
   width: 100%;
   height: 56px;
@@ -240,13 +310,17 @@
   background-color: var(--color-purple);
 
   box-shadow: var(--shadow-btn);
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, opacity 0.2s;
   cursor: pointer;
 
   color: var(--color-white);
   font-size: 18px;
   font-weight: 500;
   line-height: 100%;
+
+  &:hover {
+    opacity: 0.5;
+  }
 
   @media only screen and (min-width: 768px) {
     height: 92px;
