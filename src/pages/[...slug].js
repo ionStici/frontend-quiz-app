@@ -1,36 +1,41 @@
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useContext } from "react";
-import ResultsContext from "./store";
+import ScoresContext from "./store";
 import Link from "next/link";
 
 function Results() {
   const router = useRouter();
   let subject = router.query.slug?.[0];
 
-  const context = useContext(ResultsContext);
-  const { results } = context;
+  const context = useContext(ScoresContext);
+  const { scores: allScores } = context;
 
-  const [currentResult, setCurrentResult] = useState(
-    results[results.length - 1]
-  );
+  const scores = allScores.filter((score) => {
+    return score[0].toLowerCase() === subject;
+  });
 
-  console.log(currentResult);
+  const currentScore = scores[scores.length - 1];
 
   return (
-    <p>
-      <Link href="/html">HTML</Link>
-      <br />
-      <Link href="/css">CSS</Link>
-      <br />
-      <Link href="/javascript">JavaScript</Link>
-      <br />
-      <Link href="/accessibility">Accessibility</Link>
-      <br />
+    <section>
+      <h1>
+        <span>Quiz completed</span>
+        <span>You scored...</span>
+      </h1>
 
-      <span>{currentResult[0]}</span>
-      <span>{currentResult[1]}</span>
-    </p>
+      <div>
+        <h2>
+          {/* <Image src="" alt="" width={28} height={28} /> */}
+          <span>{currentScore?.[0]}</span>
+        </h2>
+        <p>{currentScore?.[1]}</p>
+        <p>out of 10</p>
+      </div>
+
+      <button>Play Again</button>
+    </section>
   );
 }
 

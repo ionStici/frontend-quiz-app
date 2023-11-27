@@ -6,10 +6,10 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { useContext } from "react";
-import ResultsContext from "./store";
+import ScoresContext from "./store";
 
 function SubjectPage({ quiz }) {
-  const { results, setResults } = useContext(ResultsContext);
+  const { scores, setScores } = useContext(ScoresContext);
   const router = useRouter();
 
   const { title } = quiz;
@@ -51,7 +51,7 @@ function SubjectPage({ quiz }) {
         return val ? acc + 1 : acc;
       }, 0);
 
-      setResults((prev) => {
+      setScores((prev) => {
         return [...prev, [title, points]];
       });
 
