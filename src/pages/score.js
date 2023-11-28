@@ -8,7 +8,7 @@ function ScorePage({ quizzes }) {
     <section className={styles.section}>
       <Text />
 
-      <div>
+      <div className={styles.wrapper}>
         <ScoreBox />
         <Link className={styles.link} href="/">
           Play Again
