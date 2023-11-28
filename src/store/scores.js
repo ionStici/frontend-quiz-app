@@ -7,10 +7,7 @@ const ScoresContext = createContext({
 
 const useLocalStorage = (key, defaultValue = []) => {
   const [state, setState] = useState(() => {
-    if (typeof window === "undefined") {
-      return defaultValue;
-    }
-
+    if (typeof window === "undefined") return defaultValue;
     const storedValue = localStorage.getItem(key);
     return storedValue !== null ? JSON.parse(storedValue) : defaultValue;
   });

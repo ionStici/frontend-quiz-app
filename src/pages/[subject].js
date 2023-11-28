@@ -1,12 +1,11 @@
+import { getQuizzes } from "@/lib/getQuizzes";
 import Head from "next/head";
 import Image from "next/image";
-import { getQuizzes } from "@/lib/getQuizzes";
 import styles from "./../styles/Subject.module.scss";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
-
 import { useContext } from "react";
-import ScoresContext from "./store";
+import ScoresContext from "../store/scores";
 
 function SubjectPage({ quiz }) {
   const { scores, setScores } = useContext(ScoresContext);
@@ -55,7 +54,7 @@ function SubjectPage({ quiz }) {
         return [...prev, [title, points]];
       });
 
-      router.push(`/${router.query.subject}/results`);
+      router.push(`/${router.query.subject}/score`);
       return;
     }
 

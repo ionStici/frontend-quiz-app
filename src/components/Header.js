@@ -1,7 +1,13 @@
-import Image from "next/image";
 import styles from "./../styles/Header.module.scss";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+
+const iconMoonDark = "/assets/images/icon-moon-dark.svg";
+const iconMoonLight = "/assets/images/icon-moon-light.svg";
+
+const iconSunDark = "/assets/images/icon-sun-dark.svg";
+const iconSunLight = "/assets/images/icon-sun-light.svg";
 
 const data = {
   html: {
@@ -14,14 +20,12 @@ const data = {
     icon: "/assets/images/icon-css.svg",
     color: "hsla(151, 87%, 94%, 1)",
   },
-
-  js: {
+  javascript: {
     title: "JavaScript",
     icon: "/assets/images/icon-js.svg",
     color: "hsla(223, 100%, 96%, 1)",
   },
-
-  acc: {
+  accessibility: {
     title: "Accessibility",
     icon: "/assets/images/icon-accessibility.svg",
     color: "hsla(277, 100%, 95%, 1)",
@@ -30,67 +34,35 @@ const data = {
 
 function Header() {
   const [theme, setTheme] = useState("light");
-
   const router = useRouter();
 
-  let segment;
-  segment = router.query.subject;
-  segment = segment || router.query.slug;
-  if (typeof segment === "object") segment = segment[0];
+  const urlSegment = router.query.subject;
+  let subject = {};
 
-  let title, icon, color;
+  if (urlSegment === "html") subject = data.html;
+  if (urlSegment === "css") subject = data.css;
+  if (urlSegment === "javascript") subject = data.javascript;
+  if (urlSegment === "accessibility") subject = data.accessibility;
 
-  if (segment === "html") {
-    title = data.html.title;
-    icon = data.html.icon;
-    color = data.html.color;
-  }
-  if (segment === "css") {
-    title = data.css.title;
-    icon = data.css.icon;
-    color = data.css.color;
-  }
-  if (segment === "javascript") {
-    title = data.js.title;
-    icon = data.js.icon;
-    color = data.js.color;
-  }
-  if (segment === "accessibility") {
-    title = data.acc.title;
-    icon = data.acc.icon;
-    color = data.acc.color;
-  }
+  const { title = false, icon, color } = subject;
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-
-    const handleChange = (e) => {
-      setTheme(e.matches ? "dark" : "light");
-    };
-
+    const handleChange = (e) => setTheme(e.matches ? "dark" : "light");
     mediaQuery.addEventListener("change", handleChange);
-
     setTheme(mediaQuery.matches ? "dark" : "light");
-
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
-
-  function handleThemeSwitch() {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  }
 
   useEffect(() => {
     const body = document.body;
     body.classList = "";
-
     body.classList.add(theme === "dark" ? "dark" : "light");
   }, [theme]);
 
-  const iconMoonDark = "/assets/images/icon-moon-dark.svg";
-  const iconMoonLight = "/assets/images/icon-moon-light.svg";
-
-  const iconSunDark = "/assets/images/icon-sun-dark.svg";
-  const iconSunLight = "/assets/images/icon-sun-light.svg";
+  function handleThemeSwitch() {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  }
 
   return (
     <header className={styles.header}>
@@ -106,11 +78,11 @@ function Header() {
 
         <button className={styles.btn} onClick={handleThemeSwitch}>
           <Image
+            className={styles.icon}
             src={theme === "dark" ? iconSunLight : iconSunDark}
             alt="Sun Icon"
             width={16}
             height={16}
-            className={styles.icon}
           />
           <div
             className={`${styles.toggle} ${
@@ -118,11 +90,11 @@ function Header() {
             }`}
           ></div>
           <Image
+            className={styles.icon}
             src={theme === "dark" ? iconMoonLight : iconMoonDark}
             alt="Moon Icon"
             width={16}
             height={16}
-            className={styles.icon}
           />
         </button>
       </div>

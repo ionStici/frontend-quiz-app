@@ -1,9 +1,5 @@
 :root {
   --color-white: hsla(0, 0%, 100%, 1);
-  --bar-width: 10%;
-
-  // // // // // // // // // // // // // // // // // // // //
-
   --color-purple: hsla(277, 91%, 56%, 1);
   --color-purple-pale: hsla(278, 100%, 95%, 1);
   --color-dark-navy: hsla(216, 25%, 25%, 1);
@@ -13,18 +9,17 @@
   --color-light-grey: hsla(220, 38%, 97%, 1);
   --color-green: hsla(151, 70%, 50%, 1);
   --color-red: hsla(0, 82%, 63%, 1);
+  --bar-width: 10%;
 }
 
 .dark {
   --bg-pattern-mobile: url("./../../public/assets/images/pattern-background-mobile-dark.svg");
   --bg-pattern-tablet: url("./../../public/assets/images/pattern-background-tablet-dark.svg");
   --bg-pattern-desktop: url("./../../public/assets/images/pattern-background-desktop-dark.svg");
-
   --color-bg: hsla(216, 25%, 25%, 1);
   --color-bg-answer-box: hsla(220, 38%, 97%, 1);
   --color-text: hsla(0, 0%, 100%, 1);
   --color-second-text: hsla(216, 47%, 78%, 1);
-
   --bg-color-btn: hsla(216, 27%, 32%, 1);
   --shadow-btn: 0px 16px 40px 0px rgba(49, 62, 81, 0.14);
 }
@@ -33,12 +28,10 @@
   --bg-pattern-mobile: url("./../../public/assets/images/pattern-background-mobile-light.svg");
   --bg-pattern-tablet: url("./../../public/assets/images/pattern-background-tablet-light.svg");
   --bg-pattern-desktop: url("./../../public/assets/images/pattern-background-desktop-light.svg");
-
   --color-bg: hsla(220, 38%, 97%, 1);
   --color-bg-answer-box: hsla(220, 38%, 97%, 1);
   --color-text: hsla(216, 25%, 25%, 1);
   --color-second-text: hsla(219, 13%, 44%, 1);
-
   --bg-color-btn: hsla(0, 0%, 100%, 1);
   --shadow-btn: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
 }
@@ -56,22 +49,19 @@
 
 html {
   font-family: "Rubik", sans-serif;
-  //   height: 100%;
 }
 
 body {
-  //   height: 100%;
   position: relative;
   background-color: var(--color-bg);
   transition: background-color 0.2s;
 
   &::after {
     content: "";
-    background-image: var(--bg-pattern-mobile);
-    background-repeat: no-repeat;
-
     width: 100%;
     height: 100%;
+    background-image: var(--bg-pattern-mobile);
+    background-repeat: no-repeat;
 
     position: absolute;
     z-index: -1;
@@ -89,8 +79,7 @@ body {
   }
 }
 
-main {
-}
+// main {}
 
 button {
   font-family: inherit;
