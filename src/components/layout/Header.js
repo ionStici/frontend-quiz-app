@@ -2,35 +2,13 @@ import styles from "./../../styles/Header.module.scss";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { data } from "@/data/data.js";
 
 const iconMoonDark = "/assets/images/icon-moon-dark.svg";
 const iconMoonLight = "/assets/images/icon-moon-light.svg";
 
 const iconSunDark = "/assets/images/icon-sun-dark.svg";
 const iconSunLight = "/assets/images/icon-sun-light.svg";
-
-const data = {
-  html: {
-    title: "HTML",
-    icon: "/assets/images/icon-html.svg",
-    color: "hsla(22, 100%, 96%, 1)",
-  },
-  css: {
-    title: "CSS",
-    icon: "/assets/images/icon-css.svg",
-    color: "hsla(151, 87%, 94%, 1)",
-  },
-  javascript: {
-    title: "JavaScript",
-    icon: "/assets/images/icon-js.svg",
-    color: "hsla(223, 100%, 96%, 1)",
-  },
-  accessibility: {
-    title: "Accessibility",
-    icon: "/assets/images/icon-accessibility.svg",
-    color: "hsla(277, 100%, 95%, 1)",
-  },
-};
 
 function Header() {
   const [theme, setTheme] = useState("light");

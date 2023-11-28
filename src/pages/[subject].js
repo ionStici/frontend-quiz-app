@@ -8,44 +8,30 @@ import Option from "@/components/subject/Option";
 import Button from "@/components/subject/Button";
 import Message from "@/components/subject/Message";
 
-//
-
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import ScoresContext from "../store/scores";
 
 function SubjectPage({ quiz }) {
-  const { scores, setScores } = useContext(ScoresContext);
+  // // // // // // // // // // // // // // // // // // // //
+
+  const { _, setScores } = useContext(ScoresContext);
   const router = useRouter();
 
   const { title } = quiz;
-
   const { questions } = quiz;
+
   const [current, setCurrent] = useState(questions[0]);
+  const [answers, setAnswers] = useState(
+    Array.from({ length: 10 }, () => null)
+  );
 
   const number = questions.indexOf(current) + 1;
   const { answer: correctAnswer } = current;
 
-  const [answers, setAnswers] = useState(
-    Array.from({ length: 10 }, () => null)
-  );
   const btnsBox = useRef(null);
   const submitBtn = useRef(null);
   const message = useRef(null);
-
-  // // // // // // // // // // // // // // // // // // // //
-
-  function handleActiveAnswer({ target }) {
-    if (submitBtn.current.textContent === "Next Question") return;
-
-    const ul = btnsBox.current;
-    const btns = ul.querySelectorAll("button");
-
-    btns.forEach((btn) => btn.classList.remove(styles.active));
-    target.classList.add(styles.active);
-
-    message.current.classList.remove(styles.show_message);
-  }
 
   // // // // // // // // // // // // // // // // // // // //
 
@@ -140,10 +126,25 @@ function SubjectPage({ quiz }) {
       target.textContent = "Submit Answer";
       return;
     }
+
     if (target.textContent === "Submit Answer") {
       target.textContent = "Next Question";
       return;
     }
+  }
+
+  // // // // // // // // // // // // // // // // // // // //
+
+  function handleActiveAnswer({ target }) {
+    if (submitBtn.current.textContent === "Next Question") return;
+
+    const ul = btnsBox.current;
+    const btns = ul.querySelectorAll("button");
+
+    btns.forEach((btn) => btn.classList.remove(styles.active));
+    target.classList.add(styles.active);
+
+    message.current.classList.remove(styles.show_message);
   }
 
   // // // // // // // // // // // // // // // // // // // //

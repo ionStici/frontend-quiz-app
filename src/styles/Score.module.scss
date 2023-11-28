@@ -1,0 +1,23 @@
+.section {
+  padding: 0 24px;
+}
+
+.h1 {
+  margin-bottom: 40px;
+
+  span {
+    color: var(--color-text);
+    display: block;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 100%;
+  }
+
+  span:first-child {
+    margin-bottom: 8px;
+  }
+
+  span:last-child {
+    font-weight: 500;
+  }
+}
