@@ -1,10 +1,8 @@
-import { useContext } from "react";
+import styles from "./../../styles/Score.module.scss";
 import ScoresContext from "@/store/scores";
-
+import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { data } from "@/data/data.js";
-
-import Image from "next/image";
 
 function ScoreBox() {
   const { scores, _ } = useContext(ScoresContext);
@@ -23,7 +21,7 @@ function ScoreBox() {
   }
 
   return (
-    <div>
+    <div className={styles.box}>
       <h2>
         <div style={{ backgroundColor: subject.color }}>
           <img src={subject.icon} alt="" width={28} height={28} />
@@ -31,8 +29,8 @@ function ScoreBox() {
         <span>{subject.title}</span>
       </h2>
 
-      <p>{currentScore}</p>
-      <p>out of 10</p>
+      <p className={styles.score}>{currentScore}</p>
+      <p className={styles.text}>out of 10</p>
     </div>
   );
 }
