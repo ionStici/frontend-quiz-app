@@ -4,13 +4,13 @@ import { getQuizzes } from "@/lib/getQuizzes";
 import Head from "next/head";
 
 import Question from "@/components/subject/Question";
+import Option from "@/components/subject/Option";
+import Button from "@/components/subject/Button";
+import Message from "@/components/subject/Message";
 
 //
 
-import Image from "next/image";
-
 import { useRouter } from "next/router";
-
 import { useContext } from "react";
 import ScoresContext from "../store/scores";
 
@@ -46,6 +46,8 @@ function SubjectPage({ quiz }) {
 
     message.current.classList.remove(styles.show_message);
   }
+
+  // // // // // // // // // // // // // // // // // // // //
 
   function handleSubmit({ target }) {
     if (target.textContent === "Next Question") {
@@ -144,6 +146,8 @@ function SubjectPage({ quiz }) {
     }
   }
 
+  // // // // // // // // // // // // // // // // // // // //
+
   function updateBarWidth() {
     let barWidth = (number + 1) * 10;
     document.body.style.setProperty("--bar-width", `${barWidth}%`);
@@ -172,56 +176,27 @@ function SubjectPage({ quiz }) {
         />
       </Head>
 
-      <section className={styles.section}>
+      <section>
         <div className={styles.wrapper}>
           <Question questionNumber={number} question={current.question} />
 
           <div className={styles.quizzes}>
             <ul ref={btnsBox}>
               {current.options.map((option, i) => {
-                const l = ["A", "B", "C", "D"];
                 return (
-                  <li key={i}>
-                    <button
-                      className={`${styles.answer_btn} ${
-                        false ? styles.active : ""
-                      }`}
-                      onClick={handleActiveAnswer}
-                    >
-                      <span>{l[i]}</span>
-                      <span className={styles.option}>{option}</span>
-                      <Image
-                        src={
-                          option === correctAnswer
-                            ? "assets/images/icon-correct.svg"
-                            : "assets/images/icon-incorrect.svg"
-                        }
-                        alt=""
-                        width={32}
-                        height={32}
-                      />
-                    </button>
-                  </li>
+                  <Option
+                    key={i}
+                    i={i}
+                    option={option}
+                    correctAnswer={correctAnswer}
+                    onActiveAnswer={handleActiveAnswer}
+                  />
                 );
               })}
             </ul>
 
-            <button
-              className={styles.submit_btn}
-              onClick={handleSubmit}
-              ref={submitBtn}
-            >
-              Submit Answer
-            </button>
-            <p className={styles.message} ref={message}>
-              <Image
-                src={"assets/images/icon-incorrect.svg"}
-                alt=""
-                width={32}
-                height={32}
-              />
-              <span>Please select an answer</span>
-            </p>
+            <Button onSubmit={handleSubmit} btn={submitBtn} />
+            <Message message={message} />
           </div>
         </div>
       </section>

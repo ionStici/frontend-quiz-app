@@ -1,6 +1,3 @@
-.section {
-}
-
 .wrapper {
   max-width: 548px;
   margin: 0 auto;
@@ -12,8 +9,6 @@
     max-width: 768px;
     padding: 0 64px;
     min-height: revert;
-
-    // margin-bottom: 57px;
     margin-bottom: 129px;
   }
 
@@ -63,10 +58,6 @@
     font-size: 36px;
     margin-bottom: 40px;
   }
-
-  //   @media only screen and (min-width: 1200px) {
-  // margin-bottom: 164px;
-  //   }
 }
 
 .bar {
@@ -192,8 +183,6 @@
       border-radius: 8px;
     }
   }
-
-  //   span:last-child {}
 
   img {
     margin-left: auto;
