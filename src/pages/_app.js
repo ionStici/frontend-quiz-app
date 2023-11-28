@@ -1,5 +1,5 @@
 import "./../styles/global.scss";
-import Layout from "@/components/Layout";
+import Layout from "@/components/layout/Layout";
 import { ResultsContextProvider } from "../store/scores";
 
 export default function App({ Component, pageProps }) {

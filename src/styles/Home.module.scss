@@ -1,3 +1,5 @@
+// // // // // // // // // // // // // // // // // // // //
+
 .wrapper {
   max-width: 548px;
   padding: 0 24px;
@@ -78,7 +80,9 @@
   }
 }
 
-.buttons_box {
+// // // // // // // // // // // // // // // // // // // //
+
+.links {
   padding-bottom: 250px;
 
   @media only screen and (min-width: 768px) {
@@ -124,10 +128,19 @@
     color: var(--color-text);
     background-color: var(--bg-color-btn);
     box-shadow: var(--shadow-btn);
-    transition: color 0.2s, background-color 0.2s, box-shadow 0.2s;
+    transition: color 0.2s, background-color 0.2s, box-shadow 0.2s,
+      font-size 0.2s;
+
+    &:hover {
+      font-size: 20px;
+    }
 
     @media only screen and (min-width: 768px) {
       font-size: 28px;
+
+      &:hover {
+        font-size: 31px;
+      }
     }
 
     @media only screen and (min-width: 1200px) {
@@ -165,3 +178,5 @@
     }
   }
 }
+
+// // // // // // // // // // // // // // // // // // // //

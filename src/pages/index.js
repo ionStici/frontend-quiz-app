@@ -1,9 +1,6 @@
-import { getQuizzes } from "@/lib/getQuizzes";
-import styles from "./../styles/Home.module.scss";
-
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
+import HomeComp from "@/components/home/HomeComp";
+import { getQuizzes } from "@/lib/getQuizzes";
 
 export default function Home({ quizzes }) {
   return (
@@ -18,37 +15,7 @@ export default function Home({ quizzes }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className={styles.wrapper}>
-        <div className={styles.text_box}>
-          <h1>
-            <span>Welcome to the</span>
-            <span>Frontend Quiz!</span>
-          </h1>
-          <p>Pick a subject to get started!</p>
-        </div>
-
-        <div className={styles.buttons_box}>
-          <ul>
-            {quizzes.map((quiz) => {
-              return (
-                <li key={quiz.title}>
-                  <Link href={quiz.title.toLowerCase()}>
-                    <div style={{ backgroundColor: quiz.color }}>
-                      <Image
-                        src={quiz.icon}
-                        alt={quiz.title}
-                        width={28}
-                        height={28}
-                      />
-                    </div>
-                    <span>{quiz.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </section>
+      <HomeComp quizzes={quizzes} />
     </>
   );
 }

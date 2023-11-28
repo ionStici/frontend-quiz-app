@@ -1,9 +1,16 @@
-import { getQuizzes } from "@/lib/getQuizzes";
-import Head from "next/head";
-import Image from "next/image";
 import styles from "./../styles/Subject.module.scss";
 import { useState, useRef, useEffect } from "react";
+import { getQuizzes } from "@/lib/getQuizzes";
+import Head from "next/head";
+
+import Question from "@/components/subject/Question";
+
+//
+
+import Image from "next/image";
+
 import { useRouter } from "next/router";
+
 import { useContext } from "react";
 import ScoresContext from "../store/scores";
 
@@ -54,7 +61,7 @@ function SubjectPage({ quiz }) {
         return [...prev, [title, points]];
       });
 
-      router.push(`/${router.query.subject}/score`);
+      router.push(`/score`);
       return;
     }
 
@@ -167,11 +174,7 @@ function SubjectPage({ quiz }) {
 
       <section className={styles.section}>
         <div className={styles.wrapper}>
-          <div className={styles.content_box}>
-            <p className={styles.text}>Question {number} of 10</p>
-            <p className={styles.question}>{current.question}</p>
-            <div className={styles.bar}></div>
-          </div>
+          <Question questionNumber={number} question={current.question} />
 
           <div className={styles.quizzes}>
             <ul ref={btnsBox}>
@@ -202,6 +205,7 @@ function SubjectPage({ quiz }) {
                 );
               })}
             </ul>
+
             <button
               className={styles.submit_btn}
               onClick={handleSubmit}
@@ -229,23 +233,16 @@ export default SubjectPage;
 
 export function getStaticProps(context) {
   const { quizzes } = getQuizzes();
-
   const urlSegment = context.params.subject;
-
   const quiz = quizzes.find((quiz) => quiz.title.toLowerCase() === urlSegment);
-
   return { props: { quiz } };
 }
 
 export function getStaticPaths() {
   const { quizzes } = getQuizzes();
-
   const paths = quizzes.map((quiz) => ({
     params: { subject: quiz.title.toLowerCase() },
   }));
 
-  return {
-    paths: paths,
-    fallback: false,
-  };
+  return { paths: paths, fallback: false };
 }
