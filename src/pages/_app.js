@@ -1,13 +1,13 @@
 import "./../styles/global.scss";
 import Layout from "@/components/layout/Layout";
-import { ResultsContextProvider } from "../store/scores";
+import { ScoreContextProvider } from "@/store/score";
 
 export default function App({ Component, pageProps }) {
   return (
-    <ResultsContextProvider>
+    <ScoreContextProvider>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </ResultsContextProvider>
+    </ScoreContextProvider>
   );
 }

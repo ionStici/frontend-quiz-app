@@ -10,12 +10,12 @@ import Message from "@/components/subject/Message";
 
 import { useRouter } from "next/router";
 import { useContext } from "react";
-import ScoresContext from "../store/scores";
+import ScoreContext from "../store/score";
 
 function SubjectPage({ quiz }) {
   // // // // // // // // // // // // // // // // // // // //
 
-  const { _, setScores } = useContext(ScoresContext);
+  const { _, setScore } = useContext(ScoreContext);
   const router = useRouter();
 
   const { title } = quiz;
@@ -45,9 +45,7 @@ function SubjectPage({ quiz }) {
         return val ? acc + 1 : acc;
       }, 0);
 
-      setScores((prev) => {
-        return [...prev, [title, points]];
-      });
+      setScore([title, points]);
 
       router.push(`/score`);
       return;
