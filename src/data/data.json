@@ -2,7 +2,7 @@
   "quizzes": [
     {
       "title": "HTML",
-      "icon": "./assets/images/icon-html.svg",
+      "icon": "/frontend-quiz-app/assets/icon-html.svg",
       "color": "hsla(22, 100%, 96%, 1)",
       "questions": [
         {
@@ -84,7 +84,7 @@
     },
     {
       "title": "CSS",
-      "icon": "./assets/images/icon-css.svg",
+      "icon": "/frontend-quiz-app/assets/icon-css.svg",
       "color": "hsla(151, 87%, 94%, 1)",
       "questions": [
         {
@@ -161,7 +161,7 @@
     },
     {
       "title": "JavaScript",
-      "icon": "./assets/images/icon-js.svg",
+      "icon": "/frontend-quiz-app/assets/icon-js.svg",
       "color": "hsla(223, 100%, 96%, 1)",
       "questions": [
         {
@@ -191,12 +191,7 @@
         },
         {
           "question": "How to write an IF statement for executing some code if 'i' is NOT equal to 5?",
-          "options": [
-            "if (i <> 5)",
-            "if i =! 5 then",
-            "if (i != 5)",
-            "if i not = 5"
-          ],
+          "options": ["if (i <> 5)", "if i =! 5 then", "if (i != 5)", "if i not = 5"],
           "answer": "if (i != 5)"
         },
         {
@@ -231,12 +226,7 @@
         },
         {
           "question": "How do you find the number with the highest value of x and y?",
-          "options": [
-            "Math.ceil(x, y)",
-            "top(x, y)",
-            "Math.max(x, y)",
-            "Math.highest(x, y)"
-          ],
+          "options": ["Math.ceil(x, y)", "top(x, y)", "Math.max(x, y)", "Math.highest(x, y)"],
           "answer": "Math.max(x, y)"
         },
         {
@@ -258,7 +248,7 @@
     },
     {
       "title": "Accessibility",
-      "icon": "./assets/images/icon-accessibility.svg",
+      "icon": "/frontend-quiz-app/assets/icon-accessibility.svg",
       "color": "hsla(277, 100%, 95%, 1)",
       "questions": [
         {
@@ -273,12 +263,7 @@
         },
         {
           "question": "Which element is used to provide alternative text for images for screen reader users?",
-          "options": [
-            "<alt>",
-            "<figcaption>",
-            "<description>",
-            "<img alt='description'>"
-          ],
+          "options": ["<alt>", "<figcaption>", "<description>", "<img alt='description'>"],
           "answer": "<img alt='description'>"
         },
         {
@@ -293,12 +278,7 @@
         },
         {
           "question": "Which of the following is not a principle of the WCAG?",
-          "options": [
-            "Perceivable",
-            "Dependable",
-            "Operable",
-            "Understandable"
-          ],
+          "options": ["Perceivable", "Dependable", "Operable", "Understandable"],
           "answer": "Dependable"
         },
         {
@@ -343,12 +323,7 @@
         },
         {
           "question": "Which of these tools can help in checking the accessibility of a website?",
-          "options": [
-            "W3C Validator",
-            "Google Lighthouse",
-            "CSS Validator",
-            "JavaScript Console"
-          ],
+          "options": ["W3C Validator", "Google Lighthouse", "CSS Validator", "JavaScript Console"],
           "answer": "Google Lighthouse"
         }
       ]

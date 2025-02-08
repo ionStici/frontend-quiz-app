@@ -205,3 +205,25 @@
     }
   }
 }
+
+.return_home_btn,
+.return_home_btn:link,
+.return_home_btn:visited {
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 100%;
+  color: var(--color-purple);
+  text-decoration: none;
+  margin-top: 40px;
+  transition: all 0.2s;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @media only screen and (min-width: 768px) {
+    font-size: 32px;
+    margin-top: 50px;
+  }
+}
