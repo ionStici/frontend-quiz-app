@@ -13,9 +13,6 @@
 }
 
 .dark {
-  --bg-pattern-mobile: url("./../../public/assets/images/pattern-background-mobile-dark.svg");
-  --bg-pattern-tablet: url("./../../public/assets/images/pattern-background-tablet-dark.svg");
-  --bg-pattern-desktop: url("./../../public/assets/images/pattern-background-desktop-dark.svg");
   --color-bg: hsla(216, 25%, 25%, 1);
   --color-bg-answer-box: hsla(220, 38%, 97%, 1);
   --color-text: hsla(0, 0%, 100%, 1);
@@ -25,9 +22,6 @@
 }
 
 .light {
-  --bg-pattern-mobile: url("./../../public/assets/images/pattern-background-mobile-light.svg");
-  --bg-pattern-tablet: url("./../../public/assets/images/pattern-background-tablet-light.svg");
-  --bg-pattern-desktop: url("./../../public/assets/images/pattern-background-desktop-light.svg");
   --color-bg: hsla(220, 38%, 97%, 1);
   --color-bg-answer-box: hsla(220, 38%, 97%, 1);
   --color-text: hsla(216, 25%, 25%, 1);
@@ -52,35 +46,53 @@ html {
 }
 
 body {
-  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
   background-color: var(--color-bg);
   transition: background-color 0.2s;
+}
 
-  &::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-image: var(--bg-pattern-mobile);
-    background-repeat: no-repeat;
+.pattern {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
 
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    top: 0;
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;
 
-    @media only screen and (min-width: 768px) {
-      background-image: var(--bg-pattern-tablet);
-    }
+  opacity: 100;
+  transition: opacity 0.2s;
 
-    @media only screen and (min-width: 1200px) {
-      background-image: var(--bg-pattern-desktop);
-      background-size: cover;
-    }
+  @media only screen and (min-width: 1200px) {
+    background-size: cover;
   }
 }
 
-main {
-  min-height: 100vh;
+.pattern-dark {
+  background-image: url("/frontend-quiz-app/assets/pattern-background-mobile-dark.svg");
+
+  @media only screen and (min-width: 768px) {
+    background-image: url("/frontend-quiz-app/assets/pattern-background-tablet-dark.svg");
+  }
+
+  @media only screen and (min-width: 1200px) {
+    background-image: url("/frontend-quiz-app/assets/pattern-background-desktop-dark.svg");
+  }
+}
+
+.pattern-light {
+  background-image: url("/frontend-quiz-app/assets/pattern-background-mobile-light.svg");
+
+  @media only screen and (min-width: 768px) {
+    background-image: url("/frontend-quiz-app/assets/pattern-background-tablet-light.svg");
+  }
+
+  @media only screen and (min-width: 1200px) {
+    background-image: url("/frontend-quiz-app/assets/pattern-background-desktop-light.svg");
+  }
 }
 
 button {

@@ -1,11 +1,13 @@
-import { ReactNode } from "react";
+import { Outlet } from "react-router-dom";
 import { Header } from "./header";
+import { Pattern } from "../components/pattern";
 
-export function Layout({ children }: { children: ReactNode }) {
+export function Layout() {
   return (
     <main>
+      <Pattern />
       <Header />
-      {children}
+      <Outlet />
     </main>
   );
 }

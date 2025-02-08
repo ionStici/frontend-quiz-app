@@ -1,5 +1,10 @@
-import { Layout } from "./ui/layout/layout";
+import { AppProvider } from "./provider";
+import AppRouter from "./router";
 
-export default function App() {
-  return <Layout>Quiz App</Layout>;
+export function App() {
+  return (
+    <AppProvider>
+      <AppRouter />
+    </AppProvider>
+  );
 }
